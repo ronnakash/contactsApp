@@ -11,9 +11,9 @@ const get = (req,res) => {
 }
 
 const post = (req, res) => {
-    const { name, company, address, phone } = req.body;
-    const sql = 'INSERT INTO contacts (name, company, address, phone) VALUES (?, ?, ?, ?)';
-    db.run(sql, [name, company, address, phone], function(err) {
+    const { name, company, address, phone, title } = req.body;
+    const sql = 'INSERT INTO contacts (name, company, title, address, phone) VALUES (?, ?, ?, ?, ?)';
+    db.run(sql, [name, company, title, address, phone], (err) => {
       if (err) {
         return res.status(500).send(err.message);
       }
@@ -24,8 +24,8 @@ const post = (req, res) => {
 
 const put = (req, res) => {
     const { id } = req.params;
-    const { name, company, address, phone } = req.body;
-    const sql = 'UPDATE contacts SET name=?, company=?, address=?, phone=? WHERE id=?';
+    const { name, company, address, phone, title } = req.body;
+    const sql = 'UPDATE contacts SET name=?, company=?, address=?, phone=?, title=? WHERE id=?';
     db.run(sql, [name, company, address, phone, id], function(err) {
       if (err) {
         return res.status(500).send(err.message);

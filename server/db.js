@@ -14,6 +14,7 @@ const initDatabase = () => {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         company TEXT NOT NULL,
+        title TEXT NOT NULL,
         address TEXT NOT NULL,
         phone TEXT NOT NULL)`
     );
