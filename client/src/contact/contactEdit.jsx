@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import api from "../api";
 
-const EditingContact = ({ name, company, address, phone, title}) => {
+const EditingContact = ({ name, company, address, phone, title, setIsEditing}) => {
   const [formData, setFormData] = useState({
     name,
     address,
@@ -19,12 +20,17 @@ const EditingContact = ({ name, company, address, phone, title}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form submitted with data:", formData);
-    // You can add your own logic for submitting the form data here
+    api.updateContact(formData)
   };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+  };
+
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="name">
+      <Form.Group className="form-group" controlId="name" >
         <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
@@ -35,7 +41,7 @@ const EditingContact = ({ name, company, address, phone, title}) => {
         />
       </Form.Group>
 
-      <Form.Group controlId="address">
+      <Form.Group className="form-group" controlId="address" >
         <Form.Label>Address</Form.Label>
         <Form.Control
           type="text"
@@ -46,7 +52,7 @@ const EditingContact = ({ name, company, address, phone, title}) => {
         />
       </Form.Group>
 
-      <Form.Group controlId="company">
+      <Form.Group className="form-group" controlId="company">
         <Form.Label>Company</Form.Label>
         <Form.Control
           type="text"
@@ -57,20 +63,21 @@ const EditingContact = ({ name, company, address, phone, title}) => {
         />
       </Form.Group>
 
-      <Form.Group controlId="address">
-        <Form.Label>Address</Form.Label>
+      <Form.Group className="form-group" controlId="title">
+        <Form.Label>Title</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Enter address"
-          name="address"
-          value={formData.address}
+          placeholder="Enter title"
+          name="title"
+          value={formData.title}
           onChange={handleChange}
         />
       </Form.Group>
 
-      <Form.Group controlId="phone">
+      <Form.Group className="form-group" controlId="phone">
         <Form.Label>Phone</Form.Label>
         <Form.Control
+            className="form-control"
           type="text"
           placeholder="Enter phone"
           name="phone"
@@ -79,8 +86,11 @@ const EditingContact = ({ name, company, address, phone, title}) => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onClick={e => handleSubmit(e)}>
         Save
+      </Button>
+      <Button variant="secondart" type="cancel" onClick={e => handleCancel(e)}>
+        Cancel
       </Button>
     </Form>
   );

@@ -6,7 +6,7 @@
     border-radius: 8px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-    margin: 10px;
+    margin: 20px;
     min-height: 200px;
     /* min-width: 400px; */
   
@@ -79,7 +79,6 @@
   .contact-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
     justify-content: space-between;
     background-color: #002aff2c;
     /* background-color: #e8ecff2c; */
@@ -91,5 +90,19 @@
     .contact-container {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .form-control {
+    width: 100%;
+  }
+  
+  .btn {
+    margin-right: 10px;
   }
   

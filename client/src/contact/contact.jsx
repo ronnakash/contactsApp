@@ -31,6 +31,7 @@ const Contact = ( {contact}) => {
         company={contact.company} 
         address={contact.address} 
         phone={contact.phone} 
+        setIsEditing={setIsEditing}
         />
     );
   }
