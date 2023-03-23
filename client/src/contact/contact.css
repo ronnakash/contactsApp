@@ -1,0 +1,112 @@
+.contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .picture {
+    margin-right: 20px;
+  }
+  
+  .picture-frame {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .picture-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .picture-job-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .details {
+    flex: 1;
+  }
+  
+  .details-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+  }
+  
+  .details-label {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .details-value {
+    flex: 2;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .button-edit, .button-delete {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .button-edit {
+    background-color: #2196f3;
+    color: #fff;
+  }
+  
+  .button-delete {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -10px;
+  }
+  
+  .contact-row {
+    display: flex;
+    flex-direction: row;
+    margin: 0 10px;
+  }
+  
+  .contact-col {
+    flex-basis: calc(100% / 3 - 20px);
+    margin: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-col {
+      flex-basis: 100%;
+    }
+  }
+  
