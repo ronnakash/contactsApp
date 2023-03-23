@@ -2,21 +2,23 @@ import React, { useState, useEffect } from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import api from './api.js'
+import ContactContainer from './contact/contactContainer';
+import Contact from './contact/contact';
 
 function App() {
-  const [count, setCount] = useState(0)
   const [isMobile, setIsMobile] = useState(false);
-  
+  const [contacts, setContacts] = useState([]);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)');
 
     // Check if the media query matches initially
     setIsMobile(mediaQuery.matches);
+    const contacts = api.getContacts();
+    api.getContacts().then((data) => setContacts(data));
 
-    // Add a listener to the media query to detect changes
-    const handleMediaQueryChange = (e) => {
-      setIsMobile(e.matches);
-    }}, []);
+  }, []);
 
   return (
     <div className="App">
@@ -30,12 +32,8 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count} in  {isMobile ? <p>Mobile</p> : <p>Desktop</p>}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <ContactContainer contacts={contacts} isMobile={isMobile}/>
+      {/* <Contact name={contacts[0]?.name} location={contacts[0]?.address}/> */}
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more

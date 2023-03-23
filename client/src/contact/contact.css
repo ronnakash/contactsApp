@@ -104,9 +104,9 @@
     margin: 10px;
   }
   
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .contact-col {
       flex-basis: 100%;
     }
   }
-  
+   */

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import './Contact.css';
+import '../App.css';
+import './contact.css'
 
 function Picture({ imageUrl, jobTitle }) {
   return (
@@ -13,7 +14,7 @@ function Picture({ imageUrl, jobTitle }) {
   );
 }
 
-function Details({ name, location, company, address, phoneNumber }) {
+const Details = ({ name, location, company, address, phone }) => {
   return (
     <div className="details">
       <div className="details-row">
@@ -34,13 +35,13 @@ function Details({ name, location, company, address, phoneNumber }) {
       </div>
       <div className="details-row">
         <span className="details-label">Phone:</span>
-        <span className="details-value">{phoneNumber}</span>
+        <span className="details-value">{phone}</span>
       </div>
     </div>
   );
 }
 
-function Buttons() {
+const Buttons = ({}) => {
   return (
     <div className="buttons">
       <button className="button-edit">
@@ -53,11 +54,12 @@ function Buttons() {
   );
 }
 
-function Contact({ imageUrl, jobTitle, name, location, company, address, phoneNumber }) {
+const Contact = ( { imageUrl, title, name, location, company, address, phone }) => {
+    console.log("Contact")
   return (
     <div className="contact">
-      <Picture imageUrl={imageUrl} jobTitle={jobTitle} />
-      <Details name={name} location={location} company={company} address={address} phoneNumber={phoneNumber} />
+      <Picture imageUrl={imageUrl} title={title} />
+      <Details name={name} location={location} company={company} address={address} phone={phone} />
       <Buttons />
     </div>
   );

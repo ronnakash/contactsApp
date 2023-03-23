@@ -32,7 +32,9 @@ const initDatabase = () => {
                     ["Jane Smith", "XYZ Inc.", "CEO", "456 Park Ave, Anytown, USA", "555-5678"],
                     ["Bob Johnson", "DEF Corp.", "Engineer", "789 Elm St, Anytown, USA", "555-9012"],
                     ["Sally Brown", "GHI Ltd.", "Designer", "246 Oak St, Anytown, USA", "555-3456"],
-                    ["Mike Davis", "JKL Industries", "Sales Rep", "135 Pine St, Anytown, USA", "555-7890"]
+                    ["Mike Davis", "JKL Industries", "Sales Rep", "135 Pine St, Anytown, USA", "555-7890"],
+                    ["Mike Ravid", "fdsfsdf Industries", "Sales Rep", "135 Pine St, Anytown, USA", "555-7890"]
+
                 ];
                 const sql = `INSERT INTO contacts(name, company, title, address, phone) VALUES (?, ?, ?, ?, ?)`;
                 initialData.forEach(data => {
