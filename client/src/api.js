@@ -20,9 +20,9 @@ const addContact = async (contact) => {
   }
 };
 
-const updateContact = async (id, updatedContact) => {
+const updateContact = async (updatedContact) => {
   try {
-    const response = await axios.put(`${BASE_URL}/contacts/${id}`, updatedContact);
+    const response = await axios.put(`${BASE_URL}/contacts`, updatedContact);
     return response.data;
   } catch (error) {
     console.error(error);
