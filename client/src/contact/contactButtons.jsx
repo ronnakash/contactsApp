@@ -5,13 +5,13 @@ import './contact.css'
 
 
 
-const ContactButtons = ({setIsEditing}) => {
+const ContactButtons = ({id, setIsEditing, handleDelete}) => {
   return (
     <div className="buttons">
       <button className= "button-edit" onClick={() => setIsEditing(true)}>
         <FaEdit />
       </button>
-      <button className= "button-delete">
+      <button className= "button-delete" onClick={() => handleDelete(id)}>
         <FaTrash />
       </button>
     </div>

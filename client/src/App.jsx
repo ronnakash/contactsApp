@@ -3,22 +3,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import api from './api.js'
-import ContactContainer from './contact/contactContainer';
+import ContactsContainer from './contact/contactContainer';
 import Contact from './contact/contactDisplay';
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [contacts, setContacts] = useState([]);
+  // const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-
-    // Check if the media query matches initially
-    setIsMobile(mediaQuery.matches);
-    const contacts = api.getContacts();
-    api.getContacts().then((data) => setContacts(data));
-
-  }, []);
 
   return (
     <div className="App">
@@ -32,7 +22,7 @@ function App() {
       </div> */}
       <h1>Contact App</h1>
       <div >
-      <ContactContainer contacts={contacts} isMobile={isMobile}/>
+      <ContactsContainer/>
       {/* <Contact name={contacts[0]?.name} location={contacts[0]?.address}/> */}
       </div>
       <p className="footer">

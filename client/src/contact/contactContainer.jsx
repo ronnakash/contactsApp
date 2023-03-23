@@ -1,19 +1,63 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Contact from './contact';
 import '../App.css'
+import Swal from 'sweetalert2';
+import api from '../api';
 
-function ContactContainer({ contacts, isMobile }) {
-    const numContactsPerRow = isMobile ? 1 : 3;
-    const numRows = contacts.length / numContactsPerRow;
-    console.log("contact container")
+function ContactsContainer({}) {
+  const [contacts, setContacts] = useState([]);
+
+  useEffect(() => {
+    handleFetch();
+  }, [])
+
+
+  const handleFetch = async () => {
+    setContacts(await api.getContacts());
+  }
+
+  const handleDelete = async (id) => {
+      //warning message
+      Swal.fire({
+          title: 'Are you sure you want to delete this contact?',
+          showDenyButton: true,
+          // showCancelButton: true,
+          denyButtonText: `delete`,
+          confirmButtonText: `Don't delete`,
+        }).then((result) => {
+          if (!result.isConfirmed) {
+              api.deleteContact(id);
+              const newContacts = contacts.filter((contact) => contact.id !== id);
+              setContacts(newContacts);
+          }
+        })    
+    };
+
+  const handleCreate = async ( props ) => {
+      let newContact = await api.addContact(props);
+      const newContacts = newContact? [...contacts, newContact] : notes;
+      setContacts(newContacts);
+    };
+
+  const handleUpdate = async ( props )=> {
+      const newContacts = await Promise.all(
+          contacts.map( async (contact) => {
+              if (contact.id === props.id)
+                contact = await api.updateContact(props);
+              return contact;
+          }));    
+      setContacts(newContacts);
+  };
 
   return (
     <div className="contact-container">
-        {contacts.map((contact, contactId) => {
+        {contacts.map((contact, _) => {
             console.log(contact);
             return (
-              <Contact key={contactId} 
+              <Contact key={contact.id} 
                 contact={contact}
+                handleDelete={handleDelete}
+                handleUpdate={handleUpdate}
                 />)
         })}
     </div>
@@ -21,4 +65,4 @@ function ContactContainer({ contacts, isMobile }) {
 }
 
 
-export default ContactContainer;
+export default ContactsContainer;

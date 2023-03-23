@@ -4,7 +4,7 @@ import './contact.css'
 import ContactDisplay from './contactDisplay';
 import EditingContact from './contactEdit';
 
-const Contact = ( {contact}) => {
+const Contact = ( {contact, handleDelete, handleUpdate}) => {
     
     const [isEditing, setIsEditing] = useState(false);
 
@@ -19,6 +19,8 @@ const Contact = ( {contact}) => {
             address={contact.address} 
             phone={contact.phone} 
             setIsEditing={setIsEditing}
+            handleDelete={handleDelete}
+
         />)
     }
     
@@ -32,6 +34,7 @@ const Contact = ( {contact}) => {
         address={contact.address} 
         phone={contact.phone} 
         setIsEditing={setIsEditing}
+        handleUpdate={handleUpdate}
         />
     );
   }

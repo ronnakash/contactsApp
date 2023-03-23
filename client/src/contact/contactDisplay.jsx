@@ -6,7 +6,7 @@ import ContactDetails from './contactDetails';
 import ContactPicture from './contactPicture';
 import ContactButtons from './contactButtons';
 
-const ContactDisplay = ( { image, title, name, location, company, address, phone, setIsEditing }) => {
+const ContactDisplay = ( { id, image, title, name, location, company, address, phone, setIsEditing, handleDelete }) => {
   return (
     <div className="contact">
       <ContactPicture image={image} title={title} />
@@ -18,7 +18,9 @@ const ContactDisplay = ( { image, title, name, location, company, address, phone
           phone={phone} 
         />
         <ContactButtons className="buttons" 
+          id={id}
           setIsEditing={setIsEditing}
+          handleDelete={handleDelete}
         />
       </div>
     </div>
