@@ -10,9 +10,9 @@ function ContactContainer({ contacts, isMobile }) {
   return (
     <div className="contact-container">
         {contacts.map((contact, rowIndex) => {
-            console.log(0);
+            console.log(contact);
             return (<Contact key={rowIndex} 
-                imageUrl={contact.imageUrl} 
+              image={contact.image} 
                 title={contact.title} 
                 name={contact.name} 
                 location={contact.location} 

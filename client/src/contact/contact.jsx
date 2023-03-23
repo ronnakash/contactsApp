@@ -3,11 +3,11 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import '../App.css';
 import './contact.css'
 
-function Picture({ imageUrl, title }) {
+function Picture({ image, title }) {
   return (
     <div className="picture">
       <div className="picture-frame">
-        <img src={imageUrl} alt="Profile" className="picture-img" />
+        <img src={image} alt="Profile" className="picture-img" />
       </div>
       <p className="picture-job-title">{title}</p>
     </div>
@@ -54,11 +54,11 @@ const Buttons = ({}) => {
   );
 }
 
-const Contact = ( { imageUrl, title, name, location, company, address, phone }) => {
+const Contact = ( { image, title, name, location, company, address, phone }) => {
     console.log("Contact")
   return (
     <div className="contact">
-      <Picture imageUrl={imageUrl} title={title} />
+      <Picture image={image} title={title} />
       <Details name={name} location={location} company={company} address={address} phone={phone} />
       <Buttons />
     </div>
