@@ -12,18 +12,19 @@ const EditingContact = ({ id, name, company, address, phone, title, setIsEditing
     title,
   });
 
-  const handleChange = (event) => {
+  const handleChange = async (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Form submitted with data:", formData);
-    handleUpdate({id, ...formData});
+    await handleUpdate({id, ...formData});
+    setIsEditing(false);
   };
 
-  const handleCancel = () => {
+  const handleCancel = async () => {
     setIsEditing(false);
   };
 
