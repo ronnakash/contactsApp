@@ -1,4 +1,5 @@
 import db from './db.js';
+import axios from 'axios'
 
 const get = (req,res) => {
     const sql = 'SELECT * FROM contacts';
@@ -10,23 +11,31 @@ const get = (req,res) => {
     });  
 }
 
-const post = (req, res) => {
-    const { name, company, address, phone, title } = req.body;
-    const sql = 'INSERT INTO contacts (name, company, title, address, phone) VALUES (?, ?, ?, ?, ?)';
-    db.run(sql, [name, company, title, address, phone], (err) => {
+const post = async (req, res) => {
+  const { name, company, address, phone, title } = req.body;
+  try {
+    // Make a request to the API to get a random face image
+    const response = await axios.get('https://api.lorem.space/image/face?w=200&h=200');
+    const image = response.data.url;
+
+    const sql = 'INSERT INTO contacts (name, company, title, address, phone, image) VALUES (?, ?, ?, ?, ?, ?)';
+    db.run(sql, [name, company, title, address, phone, image], function(err) {
       if (err) {
         return res.status(500).send(err.message);
       }
       const id = this.lastID;
-      res.send({ id, name, company, address, phone });
+      res.send({ id, name, company, address, phone, image });
     });
-}
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
 
 const put = (req, res) => {
-    const { id } = req.params;
-    const { name, company, address, phone, title } = req.body;
+    const { id, name, company, address, phone, title } = req.body;
     const sql = 'UPDATE contacts SET name=?, company=?, address=?, phone=?, title=? WHERE id=?';
-    db.run(sql, [name, company, address, phone, id], function(err) {
+    db.run(sql, [name, company, address, phone, title, id], function(err) {
       if (err) {
         return res.status(500).send(err.message);
       }
