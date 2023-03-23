@@ -17,7 +17,7 @@ app.get('/contacts', api.get);
 app.post('/contacts', api.post);
 
 // PUT /contacts/:id - update a contact
-app.put('/contacts/:id', api.put);
+app.put('/contacts', api.put);
 
 // DELETE /contacts/:id - delete a contact
 app.delete('/contacts/:id', api.del);
