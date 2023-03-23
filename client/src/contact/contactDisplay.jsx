@@ -8,7 +8,7 @@ import ContactButtons from './contactButtons';
 
 const ContactDisplay = ( { id, image, title, name, location, company, address, phone, setIsEditing, handleDelete }) => {
   return (
-    <div className="contact">
+    <div className="contact contact-display">
       <ContactPicture image={image} title={title} />
       <div>
         <ContactDetails name={name} 

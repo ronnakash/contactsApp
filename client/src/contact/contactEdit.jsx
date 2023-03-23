@@ -30,7 +30,7 @@ const EditingContact = ({ id, name, company, address, phone, title, setIsEditing
 
 
   return (
-    <Form onSubmit={handleSubmit} className="form">
+    <Form onSubmit={handleSubmit} className="contact form">
       <Form.Group className="form-group" controlId="name" >
         <Form.Label>Name</Form.Label>
         <Form.Control
@@ -86,13 +86,14 @@ const EditingContact = ({ id, name, company, address, phone, title, setIsEditing
           onChange={handleChange}
         />
       </Form.Group>
-
-      <Button variant="primary" type="submit" onClick={e => handleSubmit(e)}>
+        <div className="buttons buttons-center">
+        <Button variant="primary" type="submit" onClick={e => handleSubmit(e)}>
         Save
       </Button>
       <Button variant="secondart" type="cancel" onClick={e => handleCancel(e)}>
         Cancel
       </Button>
+        </div>
     </Form>
   );
 };
