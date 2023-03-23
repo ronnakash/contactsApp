@@ -6,8 +6,11 @@ const get = async (req,res) => {
     db.all(sql, [], (err, rows) => {
       if (err) 
         return res.status(500).send(err.message);
-      else 
+      else {
+        console.log('get');
+        console.log(rows);    
         res.send(rows);
+      }
     });  
 }
 
@@ -34,6 +37,8 @@ const post = async (req, res) => {
 
 const put = async (req, res) => {
     const { id, name, company, address, phone, title } = req.body;
+    console.log('put');
+    console.log(req.body);
     const sql = 'UPDATE contacts SET name=?, company=?, address=?, phone=?, title=? WHERE id=?';
     db.run(sql, [name, company, address, phone, title, id], function(err) {
       if (err) {
