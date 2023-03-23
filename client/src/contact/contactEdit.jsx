@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import api from "../api";
 
-const EditingContact = ({ name, company, address, phone, title, setIsEditing}) => {
+const EditingContact = ({ id, name, company, address, phone, title, setIsEditing}) => {
   const [formData, setFormData] = useState({
     name,
     address,
@@ -20,7 +20,7 @@ const EditingContact = ({ name, company, address, phone, title, setIsEditing}) =
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form submitted with data:", formData);
-    api.updateContact(formData)
+    api.updateContact({id, ...formData})
   };
 
   const handleCancel = () => {
@@ -29,7 +29,7 @@ const EditingContact = ({ name, company, address, phone, title, setIsEditing}) =
 
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className="form">
       <Form.Group className="form-group" controlId="name" >
         <Form.Label>Name</Form.Label>
         <Form.Control

@@ -92,11 +92,16 @@
     }
   }
   
+  .form {
+    padding: 10px;
+  }
+
   .form-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
+  
   
   .form-control {
     width: 100%;
