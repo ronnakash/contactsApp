@@ -5,10 +5,10 @@ import './contact.css'
 
 
 
-const ContactButtons = ({}) => {
+const ContactButtons = ({setIsEditing}) => {
   return (
     <div className="buttons">
-      <button className= "button-edit">
+      <button className= "button-edit" onClick={() => setIsEditing(true)}>
         <FaEdit />
       </button>
       <button className= "button-delete">

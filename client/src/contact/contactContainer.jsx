@@ -9,16 +9,11 @@ function ContactContainer({ contacts, isMobile }) {
 
   return (
     <div className="contact-container">
-        {contacts.map((contact, rowIndex) => {
+        {contacts.map((contact, contactId) => {
             console.log(contact);
-            return (<Contact key={rowIndex} 
-              image={contact.image} 
-                title={contact.title} 
-                name={contact.name} 
-                location={contact.location} 
-                company={contact.company} 
-                address={contact.address} 
-                phone={contact.phone} 
+            return (
+              <Contact key={contactId} 
+                contact={contact}
                 />)
         })}
     </div>

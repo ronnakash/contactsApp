@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import api from './api.js'
 import ContactContainer from './contact/contactContainer';
-import Contact from './contact/contact';
+import Contact from './contact/contactDisplay';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);

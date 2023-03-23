@@ -1,22 +1,39 @@
-import React from 'react';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import React, {useState} from 'react';
 import '../App.css';
 import './contact.css'
-import ContactDetails from './contactDetails';
-import ContactPicture from './contactPicture';
-import ContactButtons from './contactButtons';
+import ContactDisplay from './contactDisplay';
+import EditingContact from './contactEdit';
 
-const Contact = ( { image, title, name, location, company, address, phone }) => {
-    console.log("Contact")
-  return (
-    <div className="contact">
-      <ContactPicture image={image} title={title} />
-      <div>
-      <ContactDetails name={name} location={location} company={company} address={address} phone={phone} />
-      <ContactButtons className="buttons"/>
-      </div>
-    </div>
-  );
-}
+const Contact = ( {contact}) => {
+    
+    const [isEditing, setIsEditing] = useState(false);
 
-export default Contact;
+    if (!isEditing) {
+        return (<ContactDisplay
+            id={contact.id}
+            image={contact.image}    
+            title={contact.title} 
+            name={contact.name} 
+            location={contact.location} 
+            company={contact.company} 
+            address={contact.address} 
+            phone={contact.phone} 
+            setIsEditing={setIsEditing}
+        />)
+    }
+    
+    return (
+        <EditingContact 
+        id={contact.id}
+        image={contact.image}    
+        title={contact.title} 
+        name={contact.name} 
+        company={contact.company} 
+        address={contact.address} 
+        phone={contact.phone} 
+        />
+    );
+  }
+  
+  export default Contact;
+  
