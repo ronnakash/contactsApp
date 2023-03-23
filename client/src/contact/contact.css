@@ -2,15 +2,23 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 20px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
+    margin: 10px;
+    min-height: 200px;
+    /* min-width: 400px; */
+  
   }
   
   .picture {
     margin-right: 20px;
+  }
+
+  .contact-name {
+    font-weight: 550;
+    font-size: 115%;
   }
   
   .picture-frame {
@@ -45,12 +53,6 @@
     margin-bottom: 5px;
   }
   
-  .details-label {
-    flex: 1;
-    font-size: 14px;
-    font-weight: 500;
-    color: #555;
-  }
   
   .details-value {
     flex: 2;
@@ -63,51 +65,31 @@
   .buttons {
     display: flex;
     flex-direction: row;
+    align-self: flex-end;
+    margin-top: 10px;
+    justify-content: flex-end
   }
   
+
   .button-edit, .button-delete {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
+    margin: 5px;
   }
   
-  .button-edit {
-    background-color: #739fff;
-    color: #ff0000;
-  }
-  
-  .button-delete {
-    background-color: #ff6262;
-    color: #13132c;
-  }
-  
+
   .contact-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
     justify-content: space-between;
-    margin: 0 -10px;
+    background-color: #002aff2c;
+    /* background-color: #e8ecff2c; */
+    align-items: center;
+
   }
   
-  .contact-row {
-    display: flex;
-    flex-direction: row;
-    margin: 0 10px;
-  }
-  
-  .contact-col {
-    flex-basis: calc(100% / 3 - 20px);
-    margin: 10px;
-  }
-  
-  /* @media (max-width: 768px) {
-    .contact-col {
-      flex-basis: 100%;
+  @media  (max-width: 1100px) {
+    .contact-container {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
-   */
+  

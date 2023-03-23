@@ -22,20 +22,20 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://reactjs.org" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
+      </div> */}
+      <h1>Contact App</h1>
+      <div >
       <ContactContainer contacts={contacts} isMobile={isMobile}/>
       {/* <Contact name={contacts[0]?.name} location={contacts[0]?.address}/> */}
       </div>
-      <p className="read-the-docs">
+      <p className="footer">
         Click on the Vite and React logos to learn more
       </p>
     </div>
