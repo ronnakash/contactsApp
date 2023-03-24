@@ -8,7 +8,11 @@ const app = express();
 app.use(express.json());
 
 // enable CORS
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  allowedHeaders: ['Origin, X-Requested-With, Content-Type, Accept, Authorization'],
+  methods: ['PUT, POST, PATCH, DELETE, GET']
+}));
 
 // GET /contacts - get all contacts
 app.get('/contacts', api.get);
