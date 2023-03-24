@@ -17,6 +17,8 @@ const Contact = ( {contact, handleDelete, handleUpdate}) => {
             location={contact.location} 
             company={contact.company} 
             address={contact.address} 
+            lat={contact.lat} 
+            lng={contact.lng} 
             phone={contact.phone} 
             setIsEditing={setIsEditing}
             handleDelete={handleDelete}

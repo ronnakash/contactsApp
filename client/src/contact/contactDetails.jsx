@@ -3,8 +3,9 @@ import '../App.css';
 import './contact.css'
 
 
-const ContactDetails = ({ name, location, company, address, phone }) => {
-    return (
+const ContactDetails = ({ name, lat, lng, company, address, phone }) => {
+  const location = (lat | 69) + " " + (lng | 420);
+  return (
       <div className="details">
         <div className="details-row">
           {/* <span className="details-label">Name:</span> */}
