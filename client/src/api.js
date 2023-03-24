@@ -1,6 +1,14 @@
 import axios from 'axios';
+import dotenv from 'dotenv'
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:8080';
+// if (process.env.ENVIRONMENT == dev){
+// 	dotenv.config({ path: path.join(process.cwd()+"/src/", ".env") });
+// }
+
+// const BASE_URL = process.env.BASE_URL || 'http://localhost:8080';
+
+// const BASE_URL = 'https://contacts-app-server.vercel.app'
+const BASE_URL = 'http://localhost:3000';
 
 const getContacts = async () => {
 	try {
