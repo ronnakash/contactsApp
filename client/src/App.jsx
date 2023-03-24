@@ -5,10 +5,10 @@ import './App.css'
 import api from './api.js'
 import ContactsContainer from './contact/contactContainer';
 import Contact from './contact/contactDisplay';
-// import dotenv from 'webpack-dotenv'
+import dotenv from 'dotenv'
 
 
-// dotenv.config({ path: path.join(process.cwd()+"/src/", ".env") });
+dotenv.config({ path: path.join(process.cwd()+"/src/", ".env") });
 
 function App() {
   // const [isMobile, setIsMobile] = useState(false);
