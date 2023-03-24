@@ -31,7 +31,7 @@ const initDatabase = () => {
                 if (row.count === 0) {
                 console.log('Inserting initial data into the contacts table...');
                 const initialData = [
-                    ["John Doe", "ABC Company", "Manager", "123 Main St, Boise, Idaho, USA", "555-1234", 10, 11, "https://cdn.lorem.space/images/face/.cache/200x200/julian-wan-WNoLnJo7tS8-unsplash.jpg"],
+                    ["John Doe", "ABC Company", "Manager", "123 Main St, Boise, Idaho, USA", 10, 11, "555-1234", "https://cdn.lorem.space/images/face/.cache/200x200/julian-wan-WNoLnJo7tS8-unsplash.jpg"],
                     ["Jane Smith", "XYZ Inc.", "CEO", " 488 Laurel Lee, Burnsville, Minnesota, USA", 11, 12, "555-5678", "https://cdn.lorem.space/images/face/.cache/200x200/christopher-campbell-rDEOVtE7vOs-unsplash.jpg"],
                     ["Bob Johnson", "DEF Corp.", "Engineer", "3373 Fantages Way, Strong, Maine, USA", 12, 13, "555-9012", "https://cdn.lorem.space/images/face/.cache/200x200/sam-burriss-jTSf1xnsoCs-unsplash.jpg"],
                     ["Sally Brown", "GHI Ltd.", "Designer", "4861 Todds Lane, San Antonio, Texas, USA", 13, 14, "555-3456", "https://cdn.lorem.space/images/face/.cache/200x200/rowan-freeman-G-4OXlHo86o-unsplash.jpg"],
