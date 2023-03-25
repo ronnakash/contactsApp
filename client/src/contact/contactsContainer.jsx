@@ -3,6 +3,7 @@ import Contact from './contact';
 import '../App.css'
 import Swal from 'sweetalert2';
 import api from '../api';
+import NewContact from './newContact'
 
 function ContactsContainer({}) {
   const [contacts, setContacts] = useState([]);
@@ -60,6 +61,7 @@ function ContactsContainer({}) {
                 handleUpdate={handleUpdate}
                 />)
         })}
+        <NewContact/>
     </div>
   );
 }

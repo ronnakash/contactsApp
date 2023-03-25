@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-import ContactsContainer from './contact/contactContainer';
+import ContactsContainer from './contact/contactsContainer';
 
 
 function App() {

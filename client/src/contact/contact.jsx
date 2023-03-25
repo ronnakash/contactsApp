@@ -22,7 +22,6 @@ const Contact = ( {contact, handleDelete, handleUpdate}) => {
             phone={contact.phone} 
             setIsEditing={setIsEditing}
             handleDelete={handleDelete}
-
         />)
     }
     

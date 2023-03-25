@@ -12,6 +12,7 @@ specifiers:
   prettier: ^2.8.6
   react: ^18.2.0
   react-bootstrap: ^2.7.2
+  react-bootstrap-icons: ^1.10.2
   react-dom: ^18.2.0
   react-icons: ^4.8.0
   sweetalert2: ^11.3.10
@@ -26,6 +27,7 @@ dependencies:
   g: 2.0.1
   react: 18.2.0
   react-bootstrap: 2.7.2_zula6vjvt3wdocc4mwcxqa6nzi
+  react-bootstrap-icons: 1.10.2_react@18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.8.0_react@18.2.0
   sweetalert2: 11.3.10
@@ -1068,6 +1070,15 @@ packages:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
     dependencies:
       safe-buffer: 5.2.1
+    dev: false
+
+  /react-bootstrap-icons/1.10.2_react@18.2.0:
+    resolution: {integrity: sha512-PC72g6uARdSxZH+ViBbul3FRWKuIhiJajahwt1h0daPBDw789KqpA+x3hrJpSUyQMF0PQ9LfWxu1a0O67bqPeg==}
+    peerDependencies:
+      react: '>=16.8.6'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
     dev: false
 
   /react-bootstrap/2.7.2_zula6vjvt3wdocc4mwcxqa6nzi:
