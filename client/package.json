@@ -19,6 +19,7 @@
     "react-bootstrap-icons": "^1.10.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
+    "sweetalert": "^2.1.2",
     "sweetalert2": "^11.3.10",
     "webpack": "5"
   },

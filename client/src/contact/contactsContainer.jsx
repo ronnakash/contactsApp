@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Contact from './contact';
 import '../App.css'
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert';
 import api from '../api';
 import NewContact from './newContact'
 
@@ -19,19 +19,21 @@ function ContactsContainer({}) {
 
   const handleDelete = async (id) => {
       //warning message
-      Swal.fire({
-          title: 'Are you sure you want to delete this contact?',
-          showDenyButton: true,
-          // showCancelButton: true,
-          denyButtonText: `delete`,
-          confirmButtonText: `Don't delete`,
-        }).then((result) => {
-          if (!result.isConfirmed) {
-              api.deleteContact(id);
-              const newContacts = contacts.filter((contact) => contact.id !== id);
-              setContacts(newContacts);
-          }
-        })    
+      swal({
+        title: "Are you sure?",
+        text: "Are you sure you want to delete this contact?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((result) => {
+        if (!result.isConfirmed) {
+            api.deleteContact(id);
+            const newContacts = contacts.filter((contact) => contact.id !== id);
+            setContacts(newContacts);
+        }
+      })
+ 
     };
 
   const handleCreate = async ( props ) => {
