@@ -1,21 +1,10 @@
 import axios from 'axios';
-// import dotenv from 'dotenv'
 
 
-// const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-// const API_KEY = import.meta.env.VITE_API_KEY;
+let {PROD, VITE_PROD_URL, VITE_DEV_URL} = import.meta.env;
+const BASE_URL = PROD ? VITE_PROD_URL : VITE_DEV_URL;
 
-
-const BASE_URL = import.meta.env.MY_URL || import.meta.env.MY_URL2 || "https://contacts-app-server.vercel.app";
-
-console.log(BASE_URL)
-
-console.log(import.meta.env)
-
-
-// const BASE_URL = 'https://contacts-app-server.vercel.app'
-// const BASE_URL = 'http://localhost:3000';
-
+// get all contacts
 const getContacts = async () => {
 	try {
 		const response = await axios.get(`${BASE_URL}/contacts`);
@@ -25,6 +14,7 @@ const getContacts = async () => {
 	}
 };
 
+// add new contact
 const addContact = async (contact) => {
 	try {
 		const response = await axios.post(`${BASE_URL}/contacts`, contact);
@@ -34,6 +24,7 @@ const addContact = async (contact) => {
 	}
 };
 
+// update contact contact
 const updateContact = async (updatedContact) => {
 	try {
     console.log(updatedContact);
@@ -44,6 +35,7 @@ const updateContact = async (updatedContact) => {
 	}
 };
 
+// delete contact
 const deleteContact = async (id) => {
 	try {
 		const response = await axios.delete(`${BASE_URL}/contacts/${id}`);

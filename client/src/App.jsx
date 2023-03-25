@@ -4,8 +4,6 @@ import ContactsContainer from './contact/contactContainer';
 
 
 function App() {
-  // const [isMobile, setIsMobile] = useState(false);
-
 
   return (
     <div className="App">
