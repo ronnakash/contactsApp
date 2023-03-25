@@ -10,6 +10,7 @@ app.use(express.json());
 // enable CORS
 app.use(cors({
   origin: '*',
+  "Access-Control-Allow-Origin": "*",
   allowedHeaders: ['Origin, X-Requested-With, Content-Type, Accept, Authorization'],
   methods: ['PUT, POST, PATCH, DELETE, GET']
 }));
@@ -20,7 +21,7 @@ app.get('/contacts', api.get);
 // POST /contacts - create a new contact
 app.post('/contacts', api.post);
 
-// PUT /contacts/:id - update a contact
+// PUT /contacts - update a contact
 app.put('/contacts', api.put);
 
 // DELETE /contacts/:id - delete a contact
