@@ -1,11 +1,17 @@
 import axios from 'axios';
-import dotenv from 'dotenv'
+// import dotenv from 'dotenv'
 
-if (process.env.ENVIRONMENT == dev){
-	dotenv.config({ path: path.join(process.cwd()+"/src/", ".env") });
-}
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+// const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// const API_KEY = import.meta.env.VITE_API_KEY;
+
+
+const BASE_URL = import.meta.env.MY_URL || import.meta.env.MY_URL2 || "https://contacts-app-server.vercel.app";
+
+console.log(BASE_URL)
+
+console.log(import.meta.env)
+
 
 // const BASE_URL = 'https://contacts-app-server.vercel.app'
 // const BASE_URL = 'http://localhost:3000';

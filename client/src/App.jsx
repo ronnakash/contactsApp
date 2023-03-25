@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react';
 import './App.css'
-import api from './api.js'
 import ContactsContainer from './contact/contactContainer';
-import Contact from './contact/contactDisplay';
-import dotenv from 'dotenv'
 
-
-dotenv.config({ path: path.join(process.cwd()+"/src/", ".env") });
 
 function App() {
   // const [isMobile, setIsMobile] = useState(false);
