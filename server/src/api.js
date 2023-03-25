@@ -19,15 +19,16 @@ const post = async (req, res) => {
   try {
     // Make a request to the API to get a random face image
     const response = await axios.get('https://api.lorem.space/image/face?w=200&h=200');
-    const image = response.data.url;
+    const image = response.request.res.responseUrl;
 
     const sql = 'INSERT INTO contacts (name, company, title, address, phone, image) VALUES (?, ?, ?, ?, ?, ?)';
     db.run(sql, [name, company, title, address, phone, image], function(err) {
       if (err) {
+        console.error(err);
         return res.status(500).send(err.message);
       }
       const id = this.lastID;
-      res.send({ id, name, company, address, phone, image });
+      res.send({ id, name, company, address, phone, image, title });
     });
   } catch (error) {
     return res.status(500).send(error.message);
