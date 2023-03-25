@@ -3,9 +3,11 @@ import { Plus } from 'react-bootstrap-icons';
 
 function NewContactButton({ setIsAdding }) {
     return (
-        <button onClick={ e => setIsAdding(true) }>
-            <Plus size={16} />
-        </button>  
+        <div className="button-container">
+            <button classname = "button-new" onClick={ e => setIsAdding(true) }>
+                <Plus size={16} />
+            </button>  
+        </div>
     );
   }
   

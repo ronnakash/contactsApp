@@ -2,30 +2,29 @@ import React, {useState} from 'react';
 import EditingContact from './contactEdit';
 import NewContactButton from './newContactButton';
 
-function NewContact({ }) {
+function NewContact({ handleCreate }) {
 
     const [isAdding, setIsAdding] = useState(false);
     
-    if(isAdding) {
-        return(
-            <EditingContact 
-            id={contact.id}
-            image={contact.image}    
-            title={contact.title} 
-            name={contact.name} 
-            company={contact.company} 
-            address={contact.address} 
-            phone={contact.phone} 
-            setIsEditing={setIsEditing}
-            handleUpdate={handleUpdate}
-            />
-        )
-    }
-
-    return(
-        <NewContactButton
-            setIsAdding={setIsAdding}
-        />
+    return (
+        <div className="contact-container">
+            {isAdding?
+                <EditingContact 
+                    id={""}
+                    image={""}    
+                    title={""} 
+                    name={""} 
+                    company={""} 
+                    address={""} 
+                    phone={""} 
+                    setIsEditing={setIsAdding}
+                    handleUpdate={handleCreate}
+                /> : 
+                <NewContactButton
+                    setIsAdding={setIsAdding}
+                />
+            }
+        </div>
     )
 
   }

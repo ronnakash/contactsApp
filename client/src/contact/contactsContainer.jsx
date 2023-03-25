@@ -36,7 +36,7 @@ function ContactsContainer({}) {
 
   const handleCreate = async ( props ) => {
       let newContact = await api.addContact(props);
-      const newContacts = newContact? [...contacts, newContact] : notes;
+      const newContacts = newContact? [...contacts, newContact] : contacts;
       setContacts(newContacts);
     };
 
@@ -61,7 +61,9 @@ function ContactsContainer({}) {
                 handleUpdate={handleUpdate}
                 />)
         })}
-        <NewContact/>
+        <NewContact 
+          handleCreate= {handleCreate}
+          />
     </div>
   );
 }
