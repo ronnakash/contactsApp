@@ -9,34 +9,40 @@ const Contact = ( {contact, handleDelete, handleUpdate}) => {
     const [isEditing, setIsEditing] = useState(false);
 
     if (!isEditing) {
-        return (<ContactDisplay
-            id={contact.id}
-            image={contact.image}    
-            title={contact.title} 
-            name={contact.name} 
-            location={contact.location} 
-            company={contact.company} 
-            address={contact.address} 
-            lat={contact.lat} 
-            lng={contact.lng} 
-            phone={contact.phone} 
-            setIsEditing={setIsEditing}
-            handleDelete={handleDelete}
-        />)
+        return (
+            <div className='contact-container'>
+                <ContactDisplay
+                    id={contact.id}
+                    image={contact.image}    
+                    title={contact.title} 
+                    name={contact.name} 
+                    location={contact.location} 
+                    company={contact.company} 
+                    address={contact.address} 
+                    lat={contact.lat} 
+                    lng={contact.lng} 
+                    phone={contact.phone} 
+                    setIsEditing={setIsEditing}
+                    handleDelete={handleDelete}
+                />
+            </div>
+        )
     }
     
     return (
-        <EditingContact 
-        id={contact.id}
-        image={contact.image}    
-        title={contact.title} 
-        name={contact.name} 
-        company={contact.company} 
-        address={contact.address} 
-        phone={contact.phone} 
-        setIsEditing={setIsEditing}
-        handleUpdate={handleUpdate}
-        />
+        <div className='contact-container'>
+            <EditingContact 
+                id={contact.id}
+                image={contact.image}    
+                title={contact.title} 
+                name={contact.name} 
+                company={contact.company} 
+                address={contact.address} 
+                phone={contact.phone} 
+                setIsEditing={setIsEditing}
+                handleUpdate={handleUpdate}
+            />
+        </div>
     );
   }
   

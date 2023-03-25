@@ -51,7 +51,7 @@ function ContactsContainer({}) {
   };
 
   return (
-    <div className="contact-container">
+    <div className="contacts-container">
         {contacts.map((contact, _) => {
             console.log(contact);
             return (
