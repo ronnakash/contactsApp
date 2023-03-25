@@ -8,18 +8,19 @@ const app = express();
 app.use(express.json());
 
 // enable CORS
-app.options('*', cors({
+app.use(cors({
   origin: '*',
   allowedHeaders: ['Origin, X-Requested-With, Content-Type, Accept, Authorization'],
-  // methods: ['PUT, POST, PATCH, DELETE, GET']
+  methods: ['PUT, POST, PATCH, DELETE, GET']
 }));
 
-// app.get('/', function(req, res) {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-//   res.setHeader('Access-Control-Allow-Credentials', true);
-// });
+app.get('*', function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 // GET /contacts - get all contacts
 app.get('/contacts', api.get);
