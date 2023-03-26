@@ -55,7 +55,6 @@ function ContactsContainer({}) {
   return (
     <div className="contacts-container">
         {contacts.map((contact, _) => {
-            console.log(contact);
             return (
               <Contact key={contact.id} 
                 contact={contact}

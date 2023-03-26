@@ -5,7 +5,6 @@ let {PROD, VITE_PROD_URL, VITE_DEV_URL} = import.meta.env;
 const BASE_URL = PROD ? VITE_PROD_URL : VITE_DEV_URL;
 
 
-console.log(import.meta.env)
 
 // get all contacts
 const getContacts = async () => {
@@ -21,7 +20,6 @@ const getContacts = async () => {
 const addContact = async (contact) => {
 	try {
 		const response = await axios.post(`${BASE_URL}/contacts`, contact);
-		console.log(response.data)
 		return response.data;
 	} catch (error) {
 		console.error(error);
@@ -32,7 +30,6 @@ const addContact = async (contact) => {
 const updateContact = async (updatedContact) => {
 	try {
 		const response = await axios.put(`${BASE_URL}/contacts`, updatedContact);
-		console.log(response.data)
 		return response.data;
 	} catch (error) {
 		console.error(error);

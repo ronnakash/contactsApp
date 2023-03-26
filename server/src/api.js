@@ -12,7 +12,6 @@ const get = async (req,res) => {
         return res.status(500).send(err.message);
       }
       else {
-        console.log(rows);
         res.send(rows);
       }
     });  
@@ -30,7 +29,6 @@ const post = async (req, res) => {
         return res.status(500).send(err.message);
       }
       const id = this.lastID;
-      console.log({ id, name, company, address, phone, lat, lng, image, title })
       res.send({ id, name, company, address, phone, lat, lng, image, title });
     });
   } catch (error) {
@@ -43,9 +41,7 @@ const put = async (req, res) => {
   const { id, name, company, address, phone, title } = req.body;
   const coords = await getGoogleCoords(address);
   const latLngString = address? 'lat=?, lng=?, ' : '';
-  console.log(coords);
   let {lat, lng} = coords;
-  console.log(lat, lng);
   const data = address? [name, company, address, phone, title, id] : [name, company, address, lat, lng, phone, title, id]
   const sql = `UPDATE contacts SET name=?, company=?, address=?, ${latLngString}phone=?, title=? WHERE id=?`;
   db.run(sql, data, function(err) {
