@@ -19,6 +19,21 @@ const EditingContact = ({ id, name, company, address, phone, title, setIsEditing
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    
+    // Check if phone number is valid
+    const phoneRegex = /^[+()0-9]+$/;
+    const isValidPhone = phoneRegex.test(formData.phone);
+    if (!isValidPhone) {
+      //warning message
+      swal({
+        title: "Invalid Phone Number",
+        text: "Please enter a valid phone number",
+        icon: "error",
+        dangerMode: true,
+      })
+      return;
+    }
+    
     console.log("Form submitted with data:", formData);
     await handleUpdate({id, ...formData});
     setIsEditing(false);
