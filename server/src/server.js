@@ -14,6 +14,7 @@ app.use(cors({
   methods: ['PUT, POST, PATCH, DELETE, GET']
 }));
 
+// set CORS headers for preflight requests from browsers
 app.get('*', function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');

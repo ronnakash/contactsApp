@@ -2,8 +2,8 @@ import axios from 'axios';
 
 
 let {PROD, VITE_PROD_URL, VITE_DEV_URL} = import.meta.env;
-const BASE_URL = !PROD ? VITE_PROD_URL : VITE_DEV_URL;
-// const BASE_URL = VITE_DEV_URL;
+const BASE_URL = PROD ? VITE_PROD_URL : VITE_DEV_URL;
+
 
 console.log(import.meta.env)
 
