@@ -5,7 +5,7 @@ import ContactDisplay from './contactDisplay';
 import EditingContact from './contactEdit';
 
 const Contact = ( {contact, handleDelete, handleUpdate}) => {
-    
+    console.log(contact)
     const [isEditing, setIsEditing] = useState(false);
 
     if (!isEditing) {

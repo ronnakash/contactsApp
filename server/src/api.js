@@ -12,6 +12,7 @@ const get = async (req,res) => {
         return res.status(500).send(err.message);
       }
       else {
+        console.log(rows);
         res.send(rows);
       }
     });  
@@ -29,6 +30,7 @@ const post = async (req, res) => {
         return res.status(500).send(err.message);
       }
       const id = this.lastID;
+      console.log({ id, name, company, address, phone, lat, lng, image, title })
       res.send({ id, name, company, address, phone, lat, lng, image, title });
     });
   } catch (error) {
@@ -39,14 +41,19 @@ const post = async (req, res) => {
 
 const put = async (req, res) => {
   const { id, name, company, address, phone, title } = req.body;
-  const {lat, lng} = await getGoogleCoords(address)
-  const sql = 'UPDATE contacts SET name=?, company=?, address=?, lat=?, lng=?, title=phone=?, title=? WHERE id=?';
-  db.run(sql, [name, company, address, phone, title, id], function(err) {
+  const coords = await getGoogleCoords(address);
+  const latLngString = address? 'lat=?, lng=?, ' : '';
+  console.log(coords);
+  let {lat, lng} = coords;
+  console.log(lat, lng);
+  const data = address? [name, company, address, phone, title, id] : [name, company, address, lat, lng, phone, title, id]
+  const sql = `UPDATE contacts SET name=?, company=?, address=?, ${latLngString}phone=?, title=? WHERE id=?`;
+  db.run(sql, data, function(err) {
     if (err) {
       console.error(err);
       return res.status(500).send(err.message);
     }
-    res.send({ id, name, company, address, phone });
+    res.send({ id, name, company, lat, lng, address, phone });
   });
 }
 
@@ -69,15 +76,13 @@ const randomImage = async () => {
 }
 
 const getGoogleCoords = async (address) => {
+  if (!address)
+    return {};
   try {
     const apiKey = process.env.MY_GOOGLE_API_KEY;
-    console.log(apiKey);
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`;
-    console.log(url);
     const response = await axios.get(url);
-    console.log(response.data);
     const location = response.data.results[0].geometry.location;
-    console.log(location);
     return location;
   }
   catch (err) {

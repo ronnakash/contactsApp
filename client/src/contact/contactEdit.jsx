@@ -13,13 +13,13 @@ const EditingContact = ({ id, name, company, address, phone, title, setIsEditing
   });
 
   const handleChange = async (event) => {
+    event.preventDefault();
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
     // Check if phone number is valid
     const phoneRegex = /^[+()0-9]+$/;
     const isValidPhone = phoneRegex.test(formData.phone);
@@ -39,7 +39,8 @@ const EditingContact = ({ id, name, company, address, phone, title, setIsEditing
     setIsEditing(false);
   };
 
-  const handleCancel = async () => {
+  const handleCancel = async (event) => {
+    event.preventDefault();
     setIsEditing(false);
   };
 

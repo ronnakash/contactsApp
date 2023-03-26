@@ -21,6 +21,7 @@ const getContacts = async () => {
 const addContact = async (contact) => {
 	try {
 		const response = await axios.post(`${BASE_URL}/contacts`, contact);
+		console.log(response.data)
 		return response.data;
 	} catch (error) {
 		console.error(error);
@@ -30,8 +31,8 @@ const addContact = async (contact) => {
 // update contact contact
 const updateContact = async (updatedContact) => {
 	try {
-    console.log(updatedContact);
 		const response = await axios.put(`${BASE_URL}/contacts`, updatedContact);
+		console.log(response.data)
 		return response.data;
 	} catch (error) {
 		console.error(error);
