@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { FaEdit, FaTrash } from 'react-icons/fa';
 import '../App.css';
 import './contact.css'
 import ContactDetails from './contactDetails';

@@ -31,14 +31,13 @@ const initDatabase = () => {
                 if (row.count === 0) {
                 console.log('Inserting initial data into the contacts table...');
                 const initialData = [
-                    ["John Doe", "ABC Company", "Manager", "123 Main St, Boise, Idaho, USA", 10, 11, "555-1234", "https://cdn.lorem.space/images/face/.cache/200x200/julian-wan-WNoLnJo7tS8-unsplash.jpg"],
-                    ["Jane Smith", "XYZ Inc.", "CEO", " 488 Laurel Lee, Burnsville, Minnesota, USA", 11, 12, "555-5678", "https://cdn.lorem.space/images/face/.cache/200x200/christopher-campbell-rDEOVtE7vOs-unsplash.jpg"],
-                    ["Bob Johnson", "DEF Corp.", "Engineer", "3373 Fantages Way, Strong, Maine, USA", 12, 13, "555-9012", "https://cdn.lorem.space/images/face/.cache/200x200/sam-burriss-jTSf1xnsoCs-unsplash.jpg"],
-                    ["Sally Brown", "GHI Ltd.", "Designer", "4861 Todds Lane, San Antonio, Texas, USA", 13, 14, "555-3456", "https://cdn.lorem.space/images/face/.cache/200x200/rowan-freeman-G-4OXlHo86o-unsplash.jpg"],
-                    ["Mike Davis", "JKL Industries", "Sales Rep", "2436 Ottis Street, Oklahoma City, Oklahoma, USA", 14, 15, "555-7890", "https://cdn.lorem.space/images/face/.cache/200x200/nrd-ZmmAnliy1d4-unsplash.jpg"],
-                    ["Mike Ravid", "fdsfsdf Industries", "Sales Rep", "1394 Hawks Nest Lane, San Antonio, Texas, USA", 15, 16, "555-7890", "https://cdn.lorem.space/images/face/.cache/200x200/behrouz-sasani-khMxnuosSV4-unsplash.jpg"]
-
-                ];
+                    ["Emily Garcia", "Smith & Sons", "Manager", "123 Main St, Boise, Idaho, USA", 10, 11, "555-1234", "https://cdn.lorem.space/images/face/.cache/200x200/julian-wan-WNoLnJo7tS8-unsplash.jpg"],
+                    ["James Lee", "Johnson & Co.", "CEO", " 488 Laurel Lee, Burnsville, Minnesota, USA", 11, 12, "555-5678", "https://cdn.lorem.space/images/face/.cache/200x200/christopher-campbell-rDEOVtE7vOs-unsplash.jpg"],
+                    ["Sophia Rodriguez", "Davis Design", "Engineer", "3373 Fantages Way, Strong, Maine, USA", 12, 13, "555-9012", "https://cdn.lorem.space/images/face/.cache/200x200/sam-burriss-jTSf1xnsoCs-unsplash.jpg"],
+                    ["Liam Martinez", "Brown Enterprises", "Designer", "4861 Todds Lane, San Antonio, Texas, USA", 13, 14, "555-3456", "https://cdn.lorem.space/images/face/.cache/200x200/rowan-freeman-G-4OXlHo86o-unsplash.jpg"],
+                    ["Olivia Davis", "Clarkson & Partners", "Sales Rep", "2436 Ottis Street, Oklahoma City, Oklahoma, USA", 14, 15, "555-7890", "https://cdn.lorem.space/images/face/.cache/200x200/nrd-ZmmAnliy1d4-unsplash.jpg"],
+                    ["William Anderson", "Johnson Enterprises", "Sales Rep", "1394 Hawks Nest Lane, San Antonio, Texas, USA", 15, 16, "555-7890", "https://cdn.lorem.space/images/face/.cache/200x200/behrouz-sasani-khMxnuosSV4-unsplash.jpg"]
+                  ];                  
                 const sql = `INSERT INTO contacts(name, company, title, address, lat, lng, phone, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
                 initialData.forEach(data => {
                     db.run(sql, data, err => {

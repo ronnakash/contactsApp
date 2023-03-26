@@ -105,7 +105,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
-    background-color: #002aff2c;
+    background-color: #002aff11;
     /* background-color: #e8ecff2c; */
     align-items: center;
 
@@ -116,6 +116,14 @@
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
+  /* apply 2-column grid on mobile screens */
+  @media screen and (max-width: 768px) {
+    .contacts-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
   
   .form {
     padding: 10px;

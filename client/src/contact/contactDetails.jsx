@@ -4,7 +4,9 @@ import './contact.css'
 
 
 const ContactDetails = ({ name, lat, lng, company, address, phone }) => {
-  const location = (parseFloat(lat.toFixed(7))) + ":" + (parseFloat(lng.toFixed(7)));
+  const latitude = lat ? parseFloat(lat.toFixed(7)) : 1.234567;
+  const longitude = lng ? parseFloat(lng.toFixed(7)) : 1.234567;
+  const location = latitude + ":" + longitude;
   return (
       <div className="details">
         <div className="details-row">
