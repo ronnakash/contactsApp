@@ -6,7 +6,7 @@ import EditingContact from './contactEdit';
 
 const Contact = ( {contact, handleDelete, handleUpdate}) => {
     const [isEditing, setIsEditing] = useState(false);
-
+   
     if (!isEditing) {
         return (
             <div className='contact-container'>
