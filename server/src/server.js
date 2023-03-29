@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors({
   origin: '*',
   allowedHeaders: ['Origin, X-Requested-With, Content-Type, Accept, Authorization'],
-  methods: ['PUT, POST, PATCH, DELETE, GET']
+  methods: ['PUT', 'POST', 'PATCH', 'DELETE', 'GET']
 }));
 
 // set CORS headers for preflight requests from browsers

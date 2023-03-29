@@ -66,7 +66,6 @@ const del = async (req, res) => {
 }
 
 const randomImage = async () => {
-    // Make a request to the API to get a random face image
     const response = await axios.get('https://api.lorem.space/image/face?w=200&h=200');
     return response.request.res.responseUrl;
 }
@@ -88,4 +87,4 @@ const getGoogleCoords = async (address) => {
 }
 
 
-export default {get, post, put, del}
+export default {get, post, put, del, randomImage}
