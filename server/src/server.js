@@ -29,6 +29,10 @@ app.options('*', function(req, res, next) {
 // GET /contacts - get all contacts
 app.get('/contacts', api.get);
 
+app.get('/', (req, res) => {
+  res.send("Hello!");
+});
+
 // POST /contacts - create a new contact
 app.post('/contacts', api.post);
 
