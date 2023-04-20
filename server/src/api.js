@@ -12,6 +12,7 @@ const get = async (req,res) => {
         return res.status(500).send(err.message);
       }
       else {
+        console.log(rows);
         res.send(rows);
       }
     });  
@@ -67,7 +68,7 @@ const del = async (req, res) => {
 
 const randomImage = async () => {
     console.log("getting image");
-    const response = await axios.get('https://api.lorem.space/image/face?w=200&h=200');
+    const response = await axios.get('https://picsum.photos/200/200');
     console.log("got image");
     console.log(response.request.res.responseUrl);
     return response.request.res.responseUrl;
