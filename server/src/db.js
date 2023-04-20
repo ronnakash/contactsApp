@@ -1,7 +1,7 @@
 import sqlite3 from 'sqlite3';
+import api from './api.js';
 
-
-const initDatabase = () => {
+const initDatabase = async () => {
     const db = new sqlite3.Database('./contacts.db', (err) => {
             if (err) 
                 console.error(err.message);
@@ -23,20 +23,21 @@ const initDatabase = () => {
         if (err) console.error(err.message);
         else {
             // Check if the table is empty
-            db.get(`SELECT COUNT(*) AS count FROM contacts`, [], (err, row) => {
+            db.get(`SELECT COUNT(*) AS count FROM contacts`, [], async (err, row) => {
             if (err) 
                 console.error(err.message);
             else {
                 // If the table is empty, insert some initial data
                 if (row.count === 0) {
                 console.log('Inserting initial data into the contacts table...');
+                const images = await Promise.all(Array.from({ length: 6 }, () => api.randomImage()));
                 const initialData = [
-                    ["Emily Garcia", "Smith & Sons", "Manager", "123 Main St, Boise, Idaho, USA", 10, 11, "555-1234", "https://cdn.lorem.space/images/face/.cache/200x200/julian-wan-WNoLnJo7tS8-unsplash.jpg"],
-                    ["James Lee", "Johnson & Co.", "CEO", " 488 Laurel Lee, Burnsville, Minnesota, USA", 11, 12, "555-5678", "https://cdn.lorem.space/images/face/.cache/200x200/christopher-campbell-rDEOVtE7vOs-unsplash.jpg"],
-                    ["Sophia Rodriguez", "Davis Design", "Engineer", "3373 Fantages Way, Strong, Maine, USA", 12, 13, "555-9012", "https://cdn.lorem.space/images/face/.cache/200x200/sam-burriss-jTSf1xnsoCs-unsplash.jpg"],
-                    ["Liam Martinez", "Brown Enterprises", "Designer", "4861 Todds Lane, San Antonio, Texas, USA", 13, 14, "555-3456", "https://cdn.lorem.space/images/face/.cache/200x200/rowan-freeman-G-4OXlHo86o-unsplash.jpg"],
-                    ["Olivia Davis", "Clarkson & Partners", "Sales Rep", "2436 Ottis Street, Oklahoma City, Oklahoma, USA", 14, 15, "555-7890", "https://cdn.lorem.space/images/face/.cache/200x200/nrd-ZmmAnliy1d4-unsplash.jpg"],
-                    ["William Anderson", "Johnson Enterprises", "Sales Rep", "1394 Hawks Nest Lane, San Antonio, Texas, USA", 15, 16, "555-7890", "https://cdn.lorem.space/images/face/.cache/200x200/behrouz-sasani-khMxnuosSV4-unsplash.jpg"]
+                    ["Emily Garcia", "Smith & Sons", "Manager", "123 Main St, Boise, Idaho, USA", 10, 11, "555-1234", images[0]],
+                    ["James Lee", "Johnson & Co.", "CEO", " 488 Laurel Lee, Burnsville, Minnesota, USA", 11, 12, "555-5678", images[0]],
+                    ["Sophia Rodriguez", "Davis Design", "Engineer", "3373 Fantages Way, Strong, Maine, USA", 12, 13, "555-9012", images[0]],
+                    ["Liam Martinez", "Brown Enterprises", "Designer", "4861 Todds Lane, San Antonio, Texas, USA", 13, 14, "555-3456", images[0]],
+                    ["Olivia Davis", "Clarkson & Partners", "Sales Rep", "2436 Ottis Street, Oklahoma City, Oklahoma, USA", 14, 15, "555-7890", images[0]],
+                    ["William Anderson", "Johnson Enterprises", "Sales Rep", "1394 Hawks Nest Lane, San Antonio, Texas, USA", 15, 16, "555-7890", images[0]]
                   ];                  
                 const sql = `INSERT INTO contacts(name, company, title, address, lat, lng, phone, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
                 initialData.forEach(data => {
@@ -52,4 +53,4 @@ const initDatabase = () => {
     return db;
 }
 
-export default initDatabase();
+export default (await initDatabase());

@@ -43,7 +43,7 @@ const put = async (req, res) => {
   const latLngString = address? 'lat=?, lng=?, ' : '';
   let {lat, lng} = coords;
   const data = address? [name, company, address, phone, title, id] : [name, company, address, lat, lng, phone, title, id]
-  const sql = `UPDATE contacts SET name=?, company=?, address=?, ${latLngString}phone=?, title=? WHERE id=?`;
+  const sql = `UPDATE contacts SET name=?, company=?, address=?, ${latLngString} phone=?, title=? WHERE id=?`;
   db.run(sql, data, function(err) {
     if (err) {
       console.error(err);
@@ -66,7 +66,10 @@ const del = async (req, res) => {
 }
 
 const randomImage = async () => {
+    console.log("getting image");
     const response = await axios.get('https://api.lorem.space/image/face?w=200&h=200');
+    console.log("got image");
+    console.log(response.request.res.responseUrl);
     return response.request.res.responseUrl;
 }
 
