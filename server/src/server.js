@@ -14,33 +14,48 @@ app.use(cors({
   methods: ['PUT', 'POST', 'PATCH', 'DELETE', 'GET']
 }));
 
-// set CORS headers for preflight requests from browsers
-app.options('*', function(req, res, next) {
-  console.log("preflight");
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});
+// // set CORS headers for preflight requests from browsers
+// app.options('*', function(req, res, next) {
+//   console.log("preflight");
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//   res.setHeader('Access-Control-Allow-Credentials', true);
+//   next();
+// });
 
-// app.options('*', cors());
-
-// GET /contacts - get all contacts
-app.get('/contacts', api.get);
-
+// hello message
 app.get('/', (req, res) => {
   res.send("Hello!");
 });
 
+
+// app.options('*', cors());
+
+// GET /contacts - get all contacts
+app.get('/contacts', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  api.get(req, res);
+});
+
+
 // POST /contacts - create a new contact
-app.post('/contacts', api.post);
+app.post('/contacts', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  api.post(req, res);
+});
 
 // PUT /contacts - update a contact
-app.put('/contacts', api.put);
+app.put('/contacts', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  api.put(req, res);
+});
 
 // DELETE /contacts/:id - delete a contact
-app.delete('/contacts/:id', api.del);
+app.delete('/contacts', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  api.del(req, res);
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
