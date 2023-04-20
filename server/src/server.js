@@ -14,15 +14,6 @@ app.use(cors({
   methods: ['PUT', 'POST', 'PATCH', 'DELETE', 'GET']
 }));
 
-// // set CORS headers for preflight requests from browsers
-// app.options('*', function(req, res, next) {
-//   console.log("preflight");
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-//   res.setHeader('Access-Control-Allow-Credentials', true);
-//   next();
-// });
 
 // hello message
 app.get('/', (req, res) => {
